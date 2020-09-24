@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Галерея</title>
+</head>
+<body>
+<section layout:fragment="custom-content">
+
+    Галерея.
+    Список элементов в массиве galleryList
+    У каждого элемента два поля:
+    image - исходное изображение
+    thumbnail - превью
+    <h1>Московское</h1>
+
+    <div>
+        <div id="nanogallery2" data-nanogallery2="{
+   'thumbnailWidth': '200',
+   'thumbnailHeight':  'auto',
+   'thumbnailLabel': {
+   'position': 'overImageOnBottom'},
+   'thumbnailAlignment': 'center',
+   'thumbnailOpenImage': 'true',
+   'viewerToolbar': { display: false },
+   'viewerTools': {
+            'topLeft':   'label',
+            'topRight':  'shareButton'
+          },
+}">
+            <a th:each="item: ${galleryList}" th:href="${item.image}" th:data-ng2thumb="${item.thumbnail}" data-ng2desc=""></a>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <p layout:fragment="custom-footer">Новый тест в футере для страницы main</p>
+</footer>
+</body>
+</html>
