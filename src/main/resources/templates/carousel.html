@@ -8,26 +8,13 @@
 <body>
 <section layout:fragment="custom-content">
 
-    Карусель.
-    Список картинок в массиве carouselList
-    <div id="carouselList" class="carousel slide carousel-fade container" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li th:each="item: ${carouselList}" data-target="#carouselList" th:data-slide-to="${item.idx}" th:class="${item.isFirst} ? 'active' : ''"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div th:each="item: ${carouselList}" th:class="${item.isFirst} ? 'carousel-item active' : 'carousel-item'">
-                <img class="d-block w-100" th:src="${item.name}"/>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselList" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselList" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">next</span>
-        </a>
-    </div>
+<pre>
+    carouselList - список.
+    В кажом элементе поля:
+    - isFirst - строка, для первого 'Y'
+    - name - строка, путь до файла
+    - idx - порядковый номер записи
+</pre>
 
 </section>
 <footer>

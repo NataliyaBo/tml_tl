@@ -8,66 +8,9 @@
 <body>
 <section layout:fragment="custom-content">
 
-    <div class="container">
-
-        <header>
-            <div class="figure">
-                <img th:src="${topImage}" alt="bamblebee">
-            </div>
-            <div class="pnlMenu">
-                <div th:each="item: ${topMenu}" class="menu"><a th:href="${item.href}" th:text="${item.text}"></a></div>
-            </div>
-        </header>
-
-        <main class="content">
-
-            <div class="left_bar">
-                <h4>Интересно жжнать!</h4>
-                <ul class="nav">
-                    <li th:each="item: ${leftMenu}"><a th:href="${item.href}" th:text="${item.text}"></a></li>
-                </ul>
-            </div>
-
-            <div th:if="${congratulation}" class="hbday">
-                <h5>Пожждравляем!</h5>
-                <p class="hday" th:text="${congratulation}"></p>
-            </div>
-
-            <div class="pnl_content">
-                <div class="text">
-                    [(${mainText})]
-                </div>
-            </div>
-
-            <div class="right_bar">
-                <div class="pnlNews">
-                    <h4>Жужжовости</h4>
-                    <ul class="news">
-                        <li th:each="item: ${rightMenu}"><a th:href="${item.href}" th:text="${item.text}"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div th:if="${winners!=null and !winners.empty}" class="go">
-                <h4>Передовики квартала</h4>
-                <ul>
-                    <li th:each="item: ${winners}"><a th:href="${item.href}" th:text="${item.text}"></a></li>
-                </ul>
-            </div>
-
-        </main>
-
-        <footer class="pnlFooter">
-            <div class="txtAddr">
-                <div class="txt">
-                    <a th:each="item: ${topMenu}" th:href="${item.href}" th:text="${item.text}"></a>
-                    <address class="">55°45′07″ с. ш. 37°36′56″ в. д. e-mail: bblbee@shmel.vzhuh</address>
-                    <p><a href="">Bumblebees</a></p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
+    <pre>
+        mainText - строка с HTML разметкой
+    </pre>
 
 </section>
 
