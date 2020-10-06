@@ -103,7 +103,7 @@ public abstract class BaseController {
 
         href = new Href();
         href.setHref("#");
-        href.setText("Будьте внимательны и остороржны! Через два дня стартует сезон человеков, созрела малина.");
+        href.setText("Будьте внимательны и осторожны! Через два дня стартует сезон человеков, созрела малина.");
         rightMenu.add(href);
 
         model.put("rightMenu", rightMenu);

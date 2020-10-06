@@ -6,19 +6,28 @@
     <title>Галерея</title>
 </head>
 <body>
-<section layout:fragment="custom-content">
-
-    <pre>
-        Галерея.
-        Список элементов в массиве galleryList
-        У каждого элемента два поля:
-        image - исходное изображение
-        thumbnail - превью
-    </pre>
-
+<section layout:fragment="custom-content" class="section">
+    <div class="glr">
+<!--        <h2>Московское</h2>-->
+    <div id="nanogallery2" data-nanogallery2="{
+   /*'itemBaseURL':*/
+   'thumbnailWidth': '200',
+   'thumbnailHeight':  'auto',
+  'thumbnailLabel': {
+         'position': 'overImageOnBottom'},
+  'thumbnailAlignment': 'center',
+  'thumbnailOpenImage': 'true',
+  'viewerToolbar': { display: false },
+          'viewerTools': {
+            'topLeft':   'label',
+            'topRight':  'shareButton'
+          },
+}">
+        <a th:each="gall:${galleryList}" th:href="${gall.image}" th:data-ng2thumb="${gall.thumbnail}" data-ng2desc="#"></a>
+    </div>
+    </div>
 </section>
 <footer>
-    <p layout:fragment="custom-footer">Новый тест в футере для страницы main</p>
 </footer>
 </body>
 </html>

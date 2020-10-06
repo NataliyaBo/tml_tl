@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Мой сайт</title>
@@ -7,29 +8,81 @@
     <link rel="stylesheet" href="/css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/nanogallery2.min.css">
     <link rel="stylesheet" href="/css/style.css">
+<!--    <link rel="stylesheet" type="text/css" href="/css/09.css">-->
     <script src="/js/jquery-3.5.1.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery-ui.js"></script>
     <script src="/js/jquery.nanogallery2.min.js"></script>
 </head>
 <body>
-<pre>
-    Данные грузятся всегда.
-    topMenu - список. В кажом элементе поля: href, href
-    topMenu - список. В кажом элементе поля: href, href
-    congratulation - строка. Переменная может отсутствовать.
-    rightMenu - список. В кажом элементе поля: href, href
-    winners - список. В кажом элементе поля: href, href. Список может быть пустым.
-</pre>
+<div class="container">
 <header>
-    <h1>Заголовок из шаблона</h1>
+    <div class="headerBlock">
+        <div class="headFoto">
+            <div class="figure">
+                <img th:src="@{/img/shmelik1.jpg}" th:alt-title="#{bamblebee}">
+            </div>
+        </div>
+        <div class="headMenu">
+            <div class="pnlMenu">
+                <div th:each="menu:${topMenu}"><a th:href="${menu.href}" th:text="${menu.text}" class="menu"></a></div>
+            </div>
+        </div>
+    </div>
 </header>
-<section layout:fragment="custom-content">
-    <p>Этот шаблонный текст должен замениться</p>
-</section>
+<div class="blockContent">
+<div class="leftBlock">
+    <div class="blockFact">
+        <div class="left_bar">
+            <h4>Интересно жжнать!</h4>
+            <ul class="nav">
+                <li th:each="fact:${leftMenu}"><a th:href="${fact.href}" th:text="${fact.text}"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="blockCngrt">
+        <div th:if="${congratulation}" class="hbday">
+            <h5>Пожждравляем!</h5>
+            <p th:text="${congratulation}" class="hday">Соседняя колония, что за ромашковыми клумбами чуть южнее рябин, принимает поздравления в связи с пополнением!</p>
+        </div>
+    </div>
+</div>
+    <section layout:fragment="custom-content">
+        <div class="blockCenter">
+        <h1>Заголовок из шаблона</h1>
+        <p>Этот шаблонный текст должен замениться</p>
+        <div class="blockCenter">центральный блок</div>
+        </div>
+    </section>
+<div class="rightBlock">
+    <div class="blockNews">
+        <div class="pnlNews">
+            <h4>Жужжовости</h4>
+            <ul class="news">
+                <li th:each="news:${rightMenu}"><a th:href="${news.href}" th:text="${news.text}"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="blockWinners">
+        <div th:if="${winners!=null and !winners.empty}" class="go">
+            <h4>Передовики квартала</h4>
+            <ul>
+                <li th:each="winrs:${winners}"><a th:href="${winrs.href}" th:text="${winrs.text}"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
 <footer>
-    <p>Шаблонный тест в футере</p>
-    <p layout:fragment="custom-footer">Этот шаблонный текст в футуру должен замениться</p>
+    <div class="blockFootr">
+        <div class="txtAddr">
+            <div class="txt">
+                <a th:each="menu:${topMenu}" th:href="${menu.href}" th:text="${menu.text}"></a>
+            </div>
+            <address class="addrFootr">55°45′07″ с. ш. 37°36′56″ в. д. e-mail:bblbee@shmel.vzhuh</address>
+            <p><a href="#">Bumblebees</a></p>
+    </div>
+    </div>
 </footer>
 </body>
 </html>

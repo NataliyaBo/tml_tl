@@ -6,19 +6,28 @@
     <title>Главная страница</title>
 </head>
 <body>
-<section layout:fragment="custom-content">
+<section layout:fragment="custom-content" class="section">
+    <div id="carouselList" class="carousel slide carousel-fade container" data-ride="carousel">
 
-<pre>
-    carouselList - список.
-    В кажом элементе поля:
-    - isFirst - строка, для первого 'Y'
-    - name - строка, путь до файла
-    - idx - порядковый номер записи
-</pre>
-
+        <ol class="carousel-indicators">
+            <li th:each="carus:${carouselList}" data-target="#carouselList" th:data-slide-to="${carus.idx}" th:class="${carus.isFirst !=null} ? 'active'"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div th:each="carus:${carouselList}" th:class="${carus.isFirst !=null} ? 'carousel-item active' : 'carousel-item'">
+                <img class="d-block w-100" th:src="${carus.name}"/>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselList" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselList" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">next</span>
+        </a>
+        </div>
 </section>
 <footer>
-    <p layout:fragment="custom-footer">Новый тест в футере для страницы main</p>
 </footer>
 </body>
 </html>

@@ -50,10 +50,8 @@
     </script>
 </head>
 <body>
-<section layout:fragment="custom-content">
-
-    <a href="/">Домашняя</a>
-
+<section layout:fragment="custom-content" class="section">
+    <h1><a href="/">Домашняя</a></h1>
     <div>
         <form method="get" action="/worktime">
             <div><input type="text" name="employeeName" th:value="${employeeName}"/></div>
@@ -61,8 +59,6 @@
             <div><input type="submit" value="Найти"/></div>
         </form>
     </div>
-
-
     <table id="workTimeList">
         <tr>
             <th>ФИО</th>
@@ -79,7 +75,6 @@
     </table>
 </section>
 <footer>
-    <p layout:fragment="custom-footer">Новый тест в футере для страницы main</p>
 </footer>
 </body>
 </html>

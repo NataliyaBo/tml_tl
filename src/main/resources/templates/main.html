@@ -6,16 +6,25 @@
     <title>Главная страница</title>
 </head>
 <body>
-<section layout:fragment="custom-content">
-    <h1>Главная</h1>
-    <p>Новое содержимое для страницы main</p>
-    <a href="/worktime">Рабочее время</a>
-    <a href="/carousel">Карусель (jq12.2.html)</a>
-    <a href="/gallery">Галерея (jq12.3.html)</a>
-    <a href="/shmele">Шмеле-страница (09.html)</a>
+<section layout:fragment="custom-content" class="section">
+    <div>
+        <h1>Главная</h1>
+        <p>Новое содержимое для страницы main</p>
+        <a href="/worktime">Рабочее время</a>
+        <a href="/carousel">Карусель (jq12.2.html)</a>
+        <a href="/gallery">Галерея (jq12.3.html)</a>
+        <a href="/shmele">Шмеле-страница (09.html)</a>
+    </div>
 </section>
 <footer>
-    <p layout:fragment="custom-footer">Новый тест в футере для страницы main</p>
+    <div class="blockFootr">
+        <div class="txtAddr">
+            <div class="txt">
+                <a th:each="menu:${topMenu}" th:href="${menu.href}" th:text="${menu.text}"></a>
+            <address class="">55°45′07″ с. ш. 37°36′56″ в. д. e-mail:bblbee@shmel.vzhuh</address>
+            <p><a href="#">Bumblebees</a></p>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
