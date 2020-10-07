@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Сообщения</title>
+</head>
+<body>
+<section layout:fragment="custom-content" class="section">
+    <div class="pnl_content">
+
+        <pre>
+            Страница сообщений
+
+            Данные шаблонизатора:
+
+            - messagesList - список объектов сообщений
+              - dtm - дата, создания сообщения
+              - userName - строка, имя автора
+              - subj - строка, тема
+              - body - строка, текст
+
+            - paginator - список объектов пагинатора
+              - href - строка, ссылка на страницу
+              - text - строка, текст ссылки
+              - isActive - булево, true - если текущая страница
+
+            - isAddMessage - булево, true - если была попытка создания сообщения
+            - hrefMessageAdd - строка, URL сабмита формы для создания новго сообщения
+            - messageNew - объект, при неудачной попытке создания сообщения
+              - subj - строка, тема
+              - body - строка, текст
+            - errorMessageNew - строка, сообщение об ошибке создания сообщения
+
+            Создание сообщения:
+            Метод POST
+            Параметры:
+              - subj - тема
+              - body - текст
+
+            Шаги:
+            1. Вывести существующие сообщения.
+            2. Вывести пагинатор.
+            3. Добавить форму создания сообщения.
+            4. Вывод ошибок создания сообщения.
+        </pre>
+
+    </div>
+</section>
+<footer>
+
+</footer>
+</body>
+</html>

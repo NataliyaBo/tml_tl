@@ -4,6 +4,7 @@ public class Href {
 
     private String href;
     private String text;
+    private boolean isActive;
 
     public String getHref() {
         return href;
@@ -19,5 +20,13 @@ public class Href {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

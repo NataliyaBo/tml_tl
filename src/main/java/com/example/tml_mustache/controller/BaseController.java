@@ -41,6 +41,11 @@ public abstract class BaseController {
         topMenu.add(href);
 
         href = new Href();
+        href.setHref("/messages");
+        href.setText("Сообщения");
+        topMenu.add(href);
+
+        href = new Href();
         href.setHref("#");
         href.setText("О шмелях");
         topMenu.add(href);
