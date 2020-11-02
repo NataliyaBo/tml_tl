@@ -7,43 +7,95 @@
 </head>
 <body>
 <section layout:fragment="custom-content" class="section">
+    <h2>Пожужжжим?</h2>
     <div class="pnl_content">
 
-        <pre>
-            Страница сообщений
+        <input type="button" id="opener" value="Написать сообщение" class="butnMesg"/>
 
-            Данные шаблонизатора:
+<!--        <div id="pnlMessage" title="Форма для сообщения">-->
+<!--            <form method="post" th:action="${hrefMessageAdd}" class="messgForm">-->
+<!--                <p th:if="${errorMessageNew}" th:text="${errorMessageNew}" class="errMessg"></p>-->
+<!--                <label for="mesgNew" class="mesgNewLab">Тема</label>-->
+<!--                <input type="text" name="subj" th:value="${messageNew != null} ? ${messageNew.subj} :''" id="mesgNew" class="mesgNewInp"/>-->
+<!--                <label for="mesgNewTxt" class="mesgNewTxtLab">Ваше сообщение</label>-->
+<!--                <textarea name="body" th:text="${messageNew != null} ? ${messageNew.body} :''" id="mesgNewTxt" class="mesgNewTxtInp"></textarea>-->
+<!--                <input type="submit" value="Отправить" class="mesgBottom"/>-->
+<!--            </form>-->
+<!--        </div>-->
 
-            - messagesList - список объектов сообщений
-              - dtm - дата, создания сообщения
-              - userName - строка, имя автора
-              - subj - строка, тема
-              - body - строка, текст
+        <div id="pnlMessage" title="Форма для сообщения">
+            <form method="post" th:action="${hrefMessageAdd}" class="messgForm">
+                <div><p th:if="${errorMessageNew}" th:text="${errorMessageNew}" class="errMessg"></p></div>
+                <div><label for="mesgNew" class="mesgNewLab">Тема</label></div>
+                <div><input type="text" name="subj" th:value="${messageNew != null} ? ${messageNew.subj} :''" id="mesgNew" class="mesgNewInp"/></div>
+                <div><label for="mesgNewTxt" class="mesgNewTxtLab">Ваше сообщение</label></div>
+                <div><textarea name="body" th:text="${messageNew != null} ? ${messageNew.body} :''" id="mesgNewTxt" class="mesgNewTxtInp"></textarea></div>
+                <div><input type="submit" value="Отправить" class="mesgBottom"/></div>
+            </form>
+        </div>
 
-            - paginator - список объектов пагинатора
-              - href - строка, ссылка на страницу
-              - text - строка, текст ссылки
-              - isActive - булево, true - если текущая страница
+        <div class="pgnAp">
+            <a th:href="${pgnList.href}" th:text="${pgnList.text}" th:each="pgnList:${paginator}" th:class="${pgnList.active} ? 'pgnList active' : 'pgnList'"></a>
+        </div>
 
-            - isAddMessage - булево, true - если была попытка создания сообщения
-            - hrefMessageAdd - строка, URL сабмита формы для создания новго сообщения
-            - messageNew - объект, при неудачной попытке создания сообщения
-              - subj - строка, тема
-              - body - строка, текст
-            - errorMessageNew - строка, сообщение об ошибке создания сообщения
+        <div th:each="msList:${messagesList}" class="msList">
+            <div class="subj" th:text="${msList.subj}"></div>
+            <div class="mesgHead">
+                <div class="dataTime" th:text="${msList.dtm}"></div>
+                <div class="usName" th:text="${msList.userName}"></div>
+            </div>
+            <div class="mesgText" th:text="${msList.body}"></div>
+        </div>
 
-            Создание сообщения:
-            Метод POST
-            Параметры:
-              - subj - тема
-              - body - текст
+        <a th:href="${pgnList.href}" th:text="${pgnList.text}" th:each="pgnList:${paginator}" th:class="${pgnList.active} ? 'pgnList active' : 'pgnList'"></a>
 
-            Шаги:
-            1. Вывести существующие сообщения.
-            2. Вывести пагинатор.
-            3. Добавить форму создания сообщения.
-            4. Вывод ошибок создания сообщения.
-        </pre>
+        <script>
+            $(function (){
+                $( '#pnlMessage' ).dialog({
+                    autoOpen: '[(${isAddMessage})]' == 'true',
+                    width:500,
+                    height:600,
+                });
+                $( '#opener' ).on( 'click', function () {
+                    $( '#pnlMessage' ).dialog( 'open' );
+                });
+            })
+        </script>
+<!--        <pre>-->
+<!--            Страница сообщений-->
+
+<!--            Данные шаблонизатора:-->
+
+<!--            - messagesList - список объектов сообщений-->
+<!--              - dtm - дата, создания сообщения-->
+<!--              - userName - строка, имя автора-->
+<!--              - subj - строка, тема-->
+<!--              - body - строка, текст-->
+
+<!--            - paginator - список объектов пагинатора-->
+<!--              - href - строка, ссылка на страницу-->
+<!--              - text - строка, текст ссылки-->
+<!--              - isActive - булево, true - если текущая страница-->
+
+<!--            - isAddMessage - булево, true - если была попытка создания сообщения-->
+<!--            - hrefMessageAdd - строка, URL сабмита формы для создания новго сообщения-->
+<!--            - messageNew - объект, при неудачной попытке создания сообщения-->
+<!--              - subj - строка, тема-->
+<!--              - body - строка, текст-->
+<!--            - errorMessageNew - строка, сообщение об ошибке создания сообщения-->
+
+<!--            Создание сообщения:-->
+<!--            Метод POST-->
+<!--            Параметры:-->
+<!--              - subj - тема-->
+<!--              - body - текст-->
+
+<!--            Шаги:-->
+<!--            1. Вывести существующие сообщения.-->
+<!--            2. Вывести пагинатор.-->
+<!--            3. Добавить форму создания сообщения.-->
+<!--            4. Вывод ошибок создания сообщения.-->
+<!--        </pre>-->
 
     </div>
 </section>

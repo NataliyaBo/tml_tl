@@ -1,66 +1,59 @@
 body{width: 100%;
     height: auto;}
-
-/*div{border: 1px black solid;}*/
 .container{width: 100%;
     margin: 0 auto;
     position: relative;
     display: block;}
 .grHeader{}
 
-.headFoto{height: 145px;}
+.headFoto{height: 145px;}       /* шапка */
 .figure{width: 100%;
     height: 145px;
     overflow: hidden;}
-
 .headMenu{}
 .pnlMenu{width: 100%;
     height: 70px;
     display: inline-flex;
     overflow: auto;}
-
 .pnlMenu div{margin: auto;}
-
 .menu{height: auto;
     margin: 0;
     display: inline-block;
     text-align: center;
     font-weight: bolder;
+    font-size: 1rem;
     border-radius: 6px;
     line-height: 45px;
     color: #a34915;}
 
+.blockContent, .leftBlock, .rightBlock{margin: 16px 0 0 0;}
+.nav, .hday, .news, .go, .mesgNewLab, .mesgNewTxtLab, .errMessg{font-size: 0.87rem;}
+
 .blockContent{display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    margin: 16px 0 0 0;
-}
+    grid-template-columns: 200px 1fr 200px;}
 .content{width: 100%;}
 main a{color: black;}
-.section{margin: 6px 24px 0 24px;}
+.section{margin: 6px 24px 0 24px;
+    padding: 0 16px;}
 
-.leftBlock{margin: 16px 0 0 0;}
-.blockFact{width: 100%;
-    background: #f6ede4;
-}
-.left_bar{padding: 0 16px 16px 16px;}
+.blockFact{width: 100%;           /* левый блок */
+    background: #fffafa;}
+.left_bar{padding: 16px;}
 .nav{display: block;}
 
-.blockCngrt{margin: 24px 0 0 0;}
+.blockCngrt{margin: 28px 0 0 0;}
 .hbday{width: 100%;
     color: blue;
     background-image: url("../img/hbday1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 0 16px 16px 16px;
-}
-.hday{text-align: left;
-    font-size: medium;}
+    padding: 8px 16px 8px 16px;}
+.hday{text-align: left;}
 
-.blockCenter{}
+.blockCenter{}            /* центральный блок */
 .text{width: auto;
-    min-width: 500px;
-    padding: 0 16px;
-}
+    min-width: 300px;
+    padding: 0 16px;}
 .img{width: 100%;
     display: block;
     text-align: center;}
@@ -69,50 +62,44 @@ main a{color: black;}
     font-size: small;
     float: left;}
 
-.rightBlock{margin: 16px 0 0 0;}
-.blockNews{background: #f6ede4;}
-.blockNews{width: auto;
+.blockNews, .blockWinners{background: #FFFAFA;}
+
+.blockNews{width: auto;            /* правый блок */
     float: right;}
 .pnlNews{width: auto;
     float: right;
-    padding: 0 16px 16px 16px;
-}
+    padding: 16px;}
 .news{width: auto;
     list-style: none;
-    padding: 0;
-}
+    padding: 0;}
 ul li{margin: 0;}
 .pnlNews ul li:before{content: '\26A1';}
-
-.blockWinners{margin: 24px 0 0 0;;
-    float: right;
-    background: #f6ede4;
-}
+.blockWinners{margin: 28px 0 0 0;;
+    float: right;}
 .go{width: auto;
     float: right;
-    padding: 0 16px 16px 16px;
-}
+    padding: 16px;}
 .go ul{list-style: none;
-    padding: 0;
-}
+    padding: 0;}
+.go ul li{margin: 4px 0;}
 
-.blockFootr{margin-top: 24px;}
-.pnlFooter{width: 100%;
-    /*display: flex;*/
-}
+.blockFootr{margin-top: 24px;        /* футер */
+    position: page;}
+.pnlFooter{width: 100%;}
 .txtAddr{width: 100%;
     height: auto;
     top: auto;
     text-align: center;
     background: #f6ede4;}
-.txt{margin: 5px 0 5px 0;
+.txt{margin-bottom: 5px;
     line-height: 28px;}
 .txt a{margin: 0 16px 0 16px;
     color: #a34915;}
-.addrFootr{margin: 0;
-}
+.addrFootr{margin-bottom: 5px;}
 footer p:before{content: ' \00A9';}
-footer p{text-align: center;}
+footer p{text-align: center;
+    margin: 0;
+    padding-bottom: 4px;}
 footer p a{color: #a34915;}
 
 .carousel{margin-top: 16px;}
@@ -122,19 +109,87 @@ footer p a{color: #a34915;}
 input{margin: 0 0 8px 0;}
 td, th{padding: 4px 6px;
     border: 2px solid white;
-    background: #E8E8E8;
-}
+    background: #E8E8E8;}
 
-h1{/*margin: 0 0 15px 0;*/}
-
+h1{}
 h2{}
-
-h4{margin-bottom: 10px;}
-
-h5{margin-bottom: 10px;}
+h4, h5{margin-bottom: 12px;}
 
 a{color: black;}
-
 a:hover{color: #a34915;}
-
 ul li{margin: 10px 0 12px 0;}
+
+.butnMesg{margin: 12px 0 16px 0;}                 /* кнопка сообщения */
+.messgForm{/*display: grid;*/                         /* форма для добавления сообщения */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 30px 30px auto 1fr 50px;}
+.errMessg, .mesgNewLab, .mesgNewTxtLab{padding: 0 0 0 8px; margin: 0;}
+.errMessg{color: red;
+    font-weight: bold;
+    grid-column: 3 / 6;
+    grid-row: 3 / 4;
+    padding: 8px 0 8px 8px;
+}
+.errMessg:before{ content: '\26A0';
+    padding: 0 4px 0 0;
+}
+.mesgNewLab{grid-column: 1 / 2;
+    grid-row: 1 / 2;}
+.mesgNewInp{grid-column: 1 / 6;
+    grid-row: 2 / 3;
+    align-self: stretch;
+    margin: 0;
+    background: #FFFAFA;}
+.mesgNewTxtLab{grid-column: 1 / 4 ;
+    grid-row: 3 / 4;
+    padding: 8px 0 8px 8px;
+}
+.mesgNewTxtInp{grid-column: 1 / 6;
+    grid-row: 4 / 5;
+    background: #f6ede4;
+    height: 300px;
+}
+.mesgBottom{grid-column: 5 / 6;
+    grid-row: 5 / 6;
+    margin: 8px 0 8px 8px;}
+
+.pnl_content{width: 100%;}                /* сообщения */
+.msList{display: grid;
+    /*grid-template-columns: 100px 1fr;*/
+    grid-template-rows: 1fr;
+    grid-auto-flow: row;
+    margin: 0 0 32px 0;
+    background: #f6ede4;}
+.subj{font-weight: bold;
+    padding: 8px 8px 8px 16px;
+}
+.usName{/*padding: 4px 14px 4px 14px;*/
+    /*grid-column: 1 / 2;*/
+    /*grid-row: 1/3;*/
+    font-weight: bold;}
+.mesgHead{display: grid;
+    grid-template-columns: 120px 1fr;
+    background: #fffafa;
+    padding: 8px 8px 8px 16px;
+    width: 100%;
+    font-size: 0.62rem;
+    color: gray;}
+/*.dataTime{padding: 0 6px 8px 6px; margin: 0;}*/
+/*.subj{padding: 0 6px 8px 6px; color: #535252;}*/
+.mesgText{text-align: left;
+    margin: 0;
+    padding: 8px 8px 16px 16px;}
+
+.pgnAp{margin: 0 0 8px 0;}         /* паджинатор */
+.pgnList {display: inline-block;
+    margin: 0 4px 8px 0;
+    padding: 0 3px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #f6ede4;}
+.active{font-weight: bold;
+    background: #e7cdb3;}
+
+.mesgNewInp{width: 100%;}              /* форма для сообщения в <div/> */
+.mesgNewTxtInp{width: 100%;}
+.mesgBottom{float: right;}
