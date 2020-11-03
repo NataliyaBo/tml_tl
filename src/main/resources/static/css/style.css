@@ -190,6 +190,6 @@ ul li{margin: 10px 0 12px 0;}
 .active{font-weight: bold;
     background: #e7cdb3;}
 
-.mesgNewInp{width: 100%;}              /* форма для сообщения в <div/> */
-.mesgNewTxtInp{width: 100%;}
+.mesgNewInp{width: 100%;}
+.mesgNewTxtInp{width: 100%;}                      /* форма для сообщения в <div/> */
 .mesgBottom{float: right;}

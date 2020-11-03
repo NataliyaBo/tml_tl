@@ -29,12 +29,14 @@ public class MessageController extends BaseController {
                              final RedirectAttributes redirectAttrs) {
 
         Message message = null;
+        boolean haveError = false;
         if (null == body || body.trim().isEmpty()) {
             redirectAttrs.addFlashAttribute("errorMessageNew", "Ошибка: пустое сообщение.");
         } else {
             message = messageService.save("Местный", subj, body);
             if (null == message) {
                 redirectAttrs.addFlashAttribute("errorMessageNew", "Ошибка создания сообщения. Обратитесь к системному администратору.");
+                haveError = true;
             }
         }
 
@@ -47,7 +49,7 @@ public class MessageController extends BaseController {
         }
 
         redirectAttrs.addFlashAttribute("messageNew", message);
-        redirectAttrs.addFlashAttribute("isAddMessage", true);
+        redirectAttrs.addFlashAttribute("isAddMessage", haveError);
 
         return "redirect:/messages";
     }

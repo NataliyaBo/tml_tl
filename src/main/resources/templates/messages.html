@@ -4,6 +4,20 @@
       layout:decorate="~{template.html}">
 <head>
     <title>Сообщения</title>
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode : "textareas",
+            themes : "silver",
+            plugins : "image, media, preview",
+            // menubar : "insert",
+            toolbar : "media",
+            // plugins : "advlist, anchor, autolink, advhr, advimage, autoresize, autosave, bbcode, charmap, codesample, colorpocker, contextmenu, directionality, emoticons, fullpage, " +
+            //     "fullscreen, help, hr, image, imagetools, insertgatetime, layer, link, lists, media, paste, preview, print, save, style, searchreplace," +
+            //     "table, tabfocus, temlate, textcolor, textpattern, visualblocks," +
+            //     "visualchars, nonbreaking, wordcount,",
+            // toolbar: 'bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist | removeformat | mybutton',
+        });
+        </script>
 </head>
 <body>
 <section layout:fragment="custom-content" class="section">
@@ -44,7 +58,7 @@
                 <div class="dataTime" th:text="${msList.dtm}"></div>
                 <div class="usName" th:text="${msList.userName}"></div>
             </div>
-            <div class="mesgText" th:text="${msList.body}"></div>
+            <div class="mesgText" th:utext="${msList.body}"></div>
         </div>
 
         <a th:href="${pgnList.href}" th:text="${pgnList.text}" th:each="pgnList:${paginator}" th:class="${pgnList.active} ? 'pgnList active' : 'pgnList'"></a>
