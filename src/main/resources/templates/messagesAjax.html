@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Сообщения Ajax</title>
+</head>
+<body>
+<section layout:fragment="custom-content" class="section">
+    <h2>Пожужжжим?</h2>
+    <div class="pnl_content">
+        <pre>
+            Страница сообщений Ajax
+
+            Данные шаблонизатора:
+
+            - messagesList - список объектов сообщений
+              - dtm - дата, создания сообщения
+              - userName - строка, имя автора
+              - subj - строка, тема
+              - body - строка, текст
+
+            - paginator - список объектов пагинатора
+              - href - строка, ссылка на страницу
+              - text - строка, текст ссылки
+              - isActive - булево, true - если текущая страница
+
+            - hrefMessageAddAjax - строка, URL Ajax запроса для создания нового сообщения
+              запрос возвращает JSON
+              {"errorMessage":"Ошибка: пустое сообщение.","haveError":true}
+
+            Создание сообщения:
+            Метод POST
+            Параметры:
+              - subj - тема
+              - body - текст
+
+            Шаги:
+            1. Вывести существующие сообщения.
+            2. Вывести пагинатор.
+            3. Добавить форму создания сообщения.
+            4. Вывод ошибок создания сообщения.
+        </pre>
+
+    </div>
+</section>
+<footer>
+
+</footer>
+</body>
+</html>

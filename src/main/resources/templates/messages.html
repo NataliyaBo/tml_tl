@@ -66,7 +66,7 @@
         <script>
             $(function (){
                 $( '#pnlMessage' ).dialog({
-                    autoOpen: '[(${isAddMessage})]' == 'true',
+                    autoOpen: '[(${haveError})]' == 'true',
                     width:500,
                     height:600,
                 });
@@ -91,7 +91,7 @@
 <!--              - text - строка, текст ссылки-->
 <!--              - isActive - булево, true - если текущая страница-->
 
-<!--            - isAddMessage - булево, true - если была попытка создания сообщения-->
+<!--            - haveError - булево, true - если есть ошибка создания сообщения-->
 <!--            - hrefMessageAdd - строка, URL сабмита формы для создания новго сообщения-->
 <!--            - messageNew - объект, при неудачной попытке создания сообщения-->
 <!--              - subj - строка, тема-->

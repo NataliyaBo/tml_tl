@@ -46,6 +46,11 @@ public abstract class BaseController {
         topMenu.add(href);
 
         href = new Href();
+        href.setHref("/messagesAjax");
+        href.setText("Сообщения JS");
+        topMenu.add(href);
+
+        href = new Href();
         href.setHref("#");
         href.setText("О шмелях");
         topMenu.add(href);
